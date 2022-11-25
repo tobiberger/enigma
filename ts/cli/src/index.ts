@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { Argument, Command, Option } from "commander"
-import { asEnigmaLetter, EnigmaModel, RotorSetting, unsupportedCharacterBehaviours } from "@bergerle/enigma-core"
+import { asEnigmaLetter, EnigmaModel, RotorSetting, unsupportedCharacterBehaviours, UnsupportedCharactersBehaviour } from "@bergerle/enigma-core"
 import * as fs from "fs"
 import { runEnigma } from "./runEnigma"
 import { Readable } from "stream"
@@ -47,6 +47,8 @@ const enigmaProgram = new Command()
             .choices(unsupportedCharacterBehaviours)
             .default("drop")
     )
+    .option("-k", "keep unsupported characters (shorthand for [-x keep])")
+    .option("-f", "fail on unsupported characters (shorthand for [-x fail])")
     .option("-i, --in <path>", "input source (optional)")
     .option("-o, --out <path>", "output destination (optional, defaults to STD OUT)")
     .addArgument(textArgument)
@@ -54,6 +56,15 @@ const enigmaProgram = new Command()
         const model = options.modelConfig ? new EnigmaModel(JSON.parse(fs.readFileSync(options.modelConfig).toString())) : undefined
         const input = options.in ? fs.createReadStream(options.in) : args ? readableStreamFrom(args.join(" ")) : process.stdin
         const output: WritableStream = options.out ? fs.createWriteStream(options.out) : process.stdout
+        let unsupportedCharacters: UnsupportedCharactersBehaviour = options.unsupportedCharacter
+        if (options.k) {
+            if (unsupportedCharacters) throw Error("specified multiple behaviours for unsupported characters")
+            unsupportedCharacters = "keep"
+        }
+        if (options.f) {
+            if (unsupportedCharacters) throw Error("specified multiple behaviours for unsupported characters")
+            unsupportedCharacters = "fail"
+        }
         runEnigma({
             model,
             configuration: {
