@@ -40,7 +40,7 @@
     ]
   },
   "dependencies": {
-    "@bergerle/enigma-core": "^1.0.4",
+    "@bergerle/enigma-core": "^1.0.7",
     "commander": "^9.4.1"
   }
 }
