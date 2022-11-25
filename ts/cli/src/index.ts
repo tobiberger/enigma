@@ -36,7 +36,6 @@ const textArgument = new Argument(
 textArgument.variadic = true
 const enigmaProgram = new Command()
     .description("CLI tool for Enigma en-/decryption")
-    .version("1.0.0")
     .option("-w, --rotors <rotor1,rotor2,rotor3>", 'Rotor (wheel) order, usually expressed as Roman numerals, e.g. "IV,II,V"', "I,II,III")
     .option("-r, --ring-positions <rp1,rp2,rp3>", "Ring positions for each rotor. Can be numeric or a letter", "01,01,01")
     .option("-s, --start-positions <sp1,sp2,sp3>", "Start positions for each rotor. Can be numeric or a letter", "A,A,A")

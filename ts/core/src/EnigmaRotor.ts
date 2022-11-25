@@ -54,7 +54,7 @@ export class EnigmaRotor {
     }
 
     private subtractOffsets(letter: EnigmaLetter): EnigmaLetter {
-        const numeric = ((toNumeric(letter) - this.ringOffset - this.positionOffset + enigmaLetters.length - 1) % enigmaLetters.length) + 1
+        const numeric = ((toNumeric(letter) - this.ringOffset - this.positionOffset + 2 * enigmaLetters.length - 1) % enigmaLetters.length) + 1
         return toEnigmaLetter(numeric)
     }
 }
