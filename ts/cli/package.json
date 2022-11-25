@@ -1,5 +1,5 @@
 {
-  "name": "ts",
+  "name": "@bergerle/enigma-cli",
   "version": "1.0.0",
   "scripts": {
     "enigma": "ts-node ./src/index.ts"

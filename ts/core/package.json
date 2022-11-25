@@ -1,6 +1,15 @@
 {
-  "name": "ts",
+  "name": "@bergerle/enigma-core",
   "version": "1.0.0",
+  "repository": "https://github.com/tobiberger/enigma/tree/main/ts/core",
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf lib && tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
+    "prepublishOnly": "yarn build"
+  },
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "files": ["lib/"],
   "devDependencies": {
     "@types/jest": "^29.2.3",
     "@types/node": "^18.11.9",
@@ -20,7 +29,6 @@
     "semi": false,
     "trailingComma": "es5",
     "importOrder": [
-      "^@aws-cdk.*",
       "^[./]",
       "^.*"
     ]

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2016",
-    "module": "commonjs",
+    "module": "ESNext",
     "rootDir": "./src",
     "moduleResolution": "node",
     "types": [
@@ -9,10 +9,11 @@
       "node"
     ],
     "resolveJsonModule": true,
-    "outDir": "./build",
+    "outDir": "./lib/esm",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "declaration": true
   }
 }
