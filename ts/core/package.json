@@ -1,6 +1,6 @@
 {
   "name": "@bergerle/enigma-core",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "repository": "https://github.com/tobiberger/enigma/tree/main/ts/core",
   "license": "MIT",
   "scripts": {
