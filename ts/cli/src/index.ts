@@ -43,9 +43,9 @@ const enigmaProgram = new Command()
     .option("-m, --model-config <path>", "path to custom machine config json file")
     .option("-u, --reflector <UKW_B>", "Selection of reflector wheel", "UKW_B")
     .addOption(
-        new Option("-x, --unsupported-character <drop|keep|fail>", "Define behaviour when encountering unsupported characters")
-            .choices(unsupportedCharacterBehaviours)
-            .default("drop")
+        new Option("-x, --unsupported-character <drop|keep|fail>", "Define behaviour when encountering unsupported characters, defaults to drop").choices(
+            unsupportedCharacterBehaviours
+        )
     )
     .option("-k", "keep unsupported characters (shorthand for [-x keep])")
     .option("-f", "fail on unsupported characters (shorthand for [-x fail])")
@@ -58,12 +58,19 @@ const enigmaProgram = new Command()
         const output: WritableStream = options.out ? fs.createWriteStream(options.out) : process.stdout
         let unsupportedCharacters: UnsupportedCharactersBehaviour = options.unsupportedCharacter
         if (options.k) {
-            if (unsupportedCharacters) throw Error("specified multiple behaviours for unsupported characters")
+            if (unsupportedCharacters) {
+                throw Error("specified multiple behaviours for unsupported characters")
+            }
             unsupportedCharacters = "keep"
         }
         if (options.f) {
-            if (unsupportedCharacters) throw Error("specified multiple behaviours for unsupported characters")
+            if (unsupportedCharacters) {
+                throw Error("specified multiple behaviours for unsupported characters")
+            }
             unsupportedCharacters = "fail"
+        }
+        if (!unsupportedCharacters) {
+            unsupportedCharacters = "drop"
         }
         runEnigma({
             model,
@@ -73,7 +80,7 @@ const enigmaProgram = new Command()
                 startPositions: parseRotorSettings(options.startPositions),
                 plugConnections: options.plugboard?.split(",") ?? [],
                 reflectorId: options.reflector,
-                unsupportedCharacters: options.unsupportedCharacter,
+                unsupportedCharacters,
             },
             input,
             output,
