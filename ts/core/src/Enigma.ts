@@ -106,7 +106,9 @@ export class Enigma {
      */
     setPlugConnections(plugConnections: PlugConnection[]): Enigma {
         this.plugBoard = { ...defaultPlugBoard }
-        plugConnections.forEach(this.addPlugConnection)
+        for (const plugConnection of plugConnections) {
+            this.addPlugConnection(plugConnection)
+        }
         return this
     }
 
