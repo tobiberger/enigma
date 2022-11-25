@@ -60,7 +60,7 @@ const enigmaProgram = new Command()
                 rotorIds: options.rotors.split(","),
                 ringPositions: parseRotorSettings(options.ringPositions),
                 startPositions: parseRotorSettings(options.startPositions),
-                plugConnections: options.plugConnections?.split(",") ?? [],
+                plugConnections: options.plugboard?.split(",") ?? [],
                 reflectorId: options.reflector,
                 unsupportedCharacters: options.unsupportedCharacter,
             },
