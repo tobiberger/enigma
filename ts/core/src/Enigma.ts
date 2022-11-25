@@ -188,7 +188,7 @@ export class Enigma {
             // rotate rotor(s) before en-/decrypting the letter
             let rotorId = this.rotors.length - 1
             let shouldRotateNext = true
-            while (shouldRotateNext) {
+            while (shouldRotateNext && rotorId >= 0) {
                 shouldRotateNext = this.rotors[rotorId].rotate()
                 rotorId--
             }

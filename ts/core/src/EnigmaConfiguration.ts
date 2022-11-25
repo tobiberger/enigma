@@ -4,6 +4,7 @@ export type RotorSetting = number | EnigmaLetter
 export type PlugConnection = [EnigmaLetter, EnigmaLetter] | string
 
 export type UnsupportedCharactersBehaviour = "drop" | "keep" | "fail"
+export const unsupportedCharacterBehaviours: UnsupportedCharactersBehaviour[] = ["drop", "keep", "fail"]
 
 export interface EnigmaConfiguration {
     readonly rotorIds: string[]

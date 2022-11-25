@@ -9,7 +9,7 @@
       "node"
     ],
     "resolveJsonModule": true,
-    "outDir": "./build",
+    "outDir": "./lib",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
