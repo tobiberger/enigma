@@ -54,7 +54,7 @@ const enigmaProgram = new Command()
     .addArgument(textArgument)
     .action((args: string[], options) => {
         const model = options.modelConfig ? new EnigmaModel(JSON.parse(fs.readFileSync(options.modelConfig).toString())) : undefined
-        const input = options.in ? fs.createReadStream(options.in) : args ? readableStreamFrom(args.join(" ")) : process.stdin
+        const input = options.in ? fs.createReadStream(options.in) : args.length ? readableStreamFrom(args.join(" ")) : process.stdin
         const output: WritableStream = options.out ? fs.createWriteStream(options.out) : process.stdout
         let unsupportedCharacters: UnsupportedCharactersBehaviour = options.unsupportedCharacter
         if (options.k) {

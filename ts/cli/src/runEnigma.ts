@@ -16,9 +16,8 @@ export const runEnigma = ({ input, output, ...enigmaProps }: EnigmaParams): Prom
         input.on("data", (data) => {
             const result = enigma.enter(data.toString())
             output.write(result)
+            output.write("\n")
         })
         input.on("end", resolve)
         input.on("error", reject)
-    }).then(() => {
-        output.write("\n")
     })
