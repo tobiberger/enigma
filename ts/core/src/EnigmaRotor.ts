@@ -37,25 +37,33 @@ export class EnigmaRotor {
     }
 
     passForward(letter: EnigmaLetter): EnigmaLetter {
-        const withOffsets = this.addOffsets(letter)
+        const withOffsets = this.applyOffsets(letter)
         const mapped = this.wiring[withOffsets]
         return this.subtractOffsets(mapped)
     }
 
     passReverse(letter: EnigmaLetter): EnigmaLetter {
-        const withOffsets = this.addOffsets(letter)
+        const withOffsets = this.applyOffsets(letter)
         const mapped = this.reverseWiring[withOffsets]
         return this.subtractOffsets(mapped)
     }
 
-    private addOffsets(letter: EnigmaLetter): EnigmaLetter {
-        const numeric = ((toNumeric(letter) + this.ringOffset + this.positionOffset - 1) % enigmaLetters.length) + 1
+    private applyOffsets(letter: EnigmaLetter): EnigmaLetter {
+        const numeric = this.normalize(toNumeric(letter) - this.ringOffset + this.positionOffset)
         return toEnigmaLetter(numeric)
     }
 
     private subtractOffsets(letter: EnigmaLetter): EnigmaLetter {
-        const numeric = ((toNumeric(letter) - this.ringOffset - this.positionOffset + 2 * enigmaLetters.length - 1) % enigmaLetters.length) + 1
+        const numeric = this.normalize(toNumeric(letter) + this.ringOffset - this.positionOffset)
         return toEnigmaLetter(numeric)
+    }
+
+    private normalize(numeric: number) {
+        numeric = ((numeric - 1) % enigmaLetters.length) + 1
+        while (numeric <= 0) {
+            numeric += enigmaLetters.length
+        }
+        return numeric
     }
 }
 
