@@ -51,6 +51,7 @@ const enigmaProgram = new Command()
     .option("-f", "fail on unsupported characters (shorthand for [-x fail])")
     .option("-i, --in <path>", "input source (optional)")
     .option("-o, --out <path>", "output destination (optional, defaults to STD OUT)")
+    .option("-c", "allow using interactive commands (e.g. to check the machine state). Use command /help to get information about available commands")
     .addArgument(textArgument)
     .action((args: string[], options) => {
         const model = options.modelConfig ? new EnigmaModel(JSON.parse(fs.readFileSync(options.modelConfig).toString())) : undefined
@@ -84,6 +85,7 @@ const enigmaProgram = new Command()
             },
             input,
             output,
+            commandsEnabled: options.c,
         })
     })
 

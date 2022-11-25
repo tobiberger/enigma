@@ -297,10 +297,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@bergerle/enigma-core@^1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@bergerle/enigma-core/-/enigma-core-1.0.7.tgz#d4eda03d5cb9d524f6696b62de5a0318360bddd4"
-  integrity sha512-LVLWS7Fqg/WmKvPWeghUv5K/KIvuszCxo2rp0ln2galscGLQnf63kH7vdZOdnhyFnIXspBkC+i+WQB8uIoT9Bg==
+"@bergerle/enigma-core@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@bergerle/enigma-core/-/enigma-core-1.0.8.tgz#1788f071d247fa1a80c5329c62d0b6898643d00b"
+  integrity sha512-pFNoRr+QeKoM3aBIs92JlvMfADMoUwU3fdj2iR0GOdc8xsyrgd6Wo1xx8yrgwbLCSHKp8gliPNzXQkz0Ljc8WA==
 
 "@cspotcode/source-map-support@^0.8.0":
   version "0.8.1"

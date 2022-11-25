@@ -1,6 +1,6 @@
 {
   "name": "@bergerle/enigma-cli",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "repository": "https://github.com/tobiberger/enigma/tree/main/ts/cli",
   "license": "MIT",
   "scripts": {
@@ -40,7 +40,7 @@
     ]
   },
   "dependencies": {
-    "@bergerle/enigma-core": "^1.0.7",
+    "@bergerle/enigma-core": "^1.0.8",
     "commander": "^9.4.1"
   }
 }

@@ -84,6 +84,10 @@ export class Enigma {
         return this
     }
 
+    getPositions(): EnigmaLetter[] {
+        return this.rotors.map((rotor) => rotor.getPosition())
+    }
+
     /**
      * Set the (start) positions for all active rotors
      * @param startPositions desired positions for all rotors from left (slow) to right (fast)
